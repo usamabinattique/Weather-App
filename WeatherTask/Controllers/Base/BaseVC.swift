@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BaseVC.swift
 //  WeatherTask
 //
 //  Created by usama on 02/03/2022.
@@ -7,13 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BaseVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
-
-
 }
-
