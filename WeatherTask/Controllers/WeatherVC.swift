@@ -8,8 +8,15 @@
 import UIKit
 
 class WeatherVC: BaseVC {
-    
+
+    //MARK: Outlets
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var currentTemperature: UILabel!
+    @IBOutlet weak var currentWeatherType: UILabel!
+    @IBOutlet weak var currentWeatherIcon: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
     
     private var viewModel: WeatherViewModel!
 
@@ -29,6 +36,7 @@ private extension WeatherVC {
         tableView.backgroundColor = .clear
         tableView.tableFooterView =  UIView()
         tableView.dataSource = self
+        tableView.registerNib(cell: WeatherCell.self)
     }
 }
 
@@ -38,7 +46,9 @@ extension WeatherVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        let cell: WeatherCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        return cell
     }
 }
 

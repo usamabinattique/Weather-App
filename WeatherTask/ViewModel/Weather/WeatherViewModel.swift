@@ -11,3 +11,10 @@ class WeatherViewModel {
     init() { }
 }
 
+
+extension WeatherViewModel {
+    func fetchWeatherData(completion: @escaping NetworkCompletion) {
+        let endPoint = API.weather
+        
+    }
+}
