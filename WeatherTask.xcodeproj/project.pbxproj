@@ -21,6 +21,14 @@
 		5076B2B727CF660000635747 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076B2B627CF660000635747 /* BaseVC.swift */; };
 		5076B2BD27CF66DC00635747 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076B2BB27CF66DC00635747 /* WeatherCell.swift */; };
 		5076B2BE27CF66DC00635747 /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5076B2BC27CF66DC00635747 /* WeatherCell.xib */; };
+		5076B2C127CF678800635747 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076B2C027CF678800635747 /* UITableView.swift */; };
+		5076B2C427CF67BC00635747 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076B2C327CF67BC00635747 /* ReusableIdentifier.swift */; };
+		50FBDA9A27CF7512008ABADD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDA9927CF7512008ABADD /* API.swift */; };
+		50FBDA9D27CF7626008ABADD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDA9C27CF7626008ABADD /* APIClient.swift */; };
+		50FBDAA027CF7652008ABADD /* BaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDA9F27CF7652008ABADD /* BaseNetwork.swift */; };
+		50FBDAA327CF767F008ABADD /* SharedLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAA227CF767F008ABADD /* SharedLogger.swift */; };
+		50FBDAA627CF76D7008ABADD /* DefaultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAA527CF76D7008ABADD /* DefaultError.swift */; };
+		50FBDAA827CF76FD008ABADD /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAA727CF76FD008ABADD /* JSONEncoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +66,14 @@
 		5076B2B627CF660000635747 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		5076B2BB27CF66DC00635747 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		5076B2BC27CF66DC00635747 /* WeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
+		5076B2C027CF678800635747 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		5076B2C327CF67BC00635747 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
+		50FBDA9927CF7512008ABADD /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		50FBDA9C27CF7626008ABADD /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		50FBDA9F27CF7652008ABADD /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetwork.swift; sourceTree = "<group>"; };
+		50FBDAA227CF767F008ABADD /* SharedLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLogger.swift; sourceTree = "<group>"; };
+		50FBDAA527CF76D7008ABADD /* DefaultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultError.swift; sourceTree = "<group>"; };
+		50FBDAA727CF76FD008ABADD /* JSONEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +124,10 @@
 		5076B27327CF629500635747 /* WeatherTask */ = {
 			isa = PBXGroup;
 			children = (
+				50FBDA9827CF7504008ABADD /* Networking */,
 				5076B2A727CF642700635747 /* AppDelegate */,
+				5076B2C227CF67A300635747 /* Protocols */,
+				50FBDAA127CF7673008ABADD /* Shared */,
 				5076B2A827CF645700635747 /* Extensions */,
 				5076B2B127CF658F00635747 /* ViewModel */,
 				5076B2A427CF63D700635747 /* Views */,
@@ -183,6 +202,7 @@
 		5076B2A927CF646700635747 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				5076B2C027CF678800635747 /* UITableView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -242,6 +262,42 @@
 				5076B2BC27CF66DC00635747 /* WeatherCell.xib */,
 			);
 			path = WeatherCell;
+			sourceTree = "<group>";
+		};
+		5076B2C227CF67A300635747 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5076B2C327CF67BC00635747 /* ReusableIdentifier.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		50FBDA9827CF7504008ABADD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				50FBDA9927CF7512008ABADD /* API.swift */,
+				50FBDA9B27CF7616008ABADD /* Base */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		50FBDA9B27CF7616008ABADD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				50FBDA9C27CF7626008ABADD /* APIClient.swift */,
+				50FBDA9F27CF7652008ABADD /* BaseNetwork.swift */,
+				50FBDAA527CF76D7008ABADD /* DefaultError.swift */,
+				50FBDAA727CF76FD008ABADD /* JSONEncoder.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		50FBDAA127CF7673008ABADD /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				50FBDAA227CF767F008ABADD /* SharedLogger.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,11 +434,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5076B27927CF629500635747 /* WeatherVC.swift in Sources */,
+				5076B2C427CF67BC00635747 /* ReusableIdentifier.swift in Sources */,
+				50FBDAA827CF76FD008ABADD /* JSONEncoder.swift in Sources */,
 				5076B2B427CF65B300635747 /* WeatherViewModel.swift in Sources */,
+				50FBDA9D27CF7626008ABADD /* APIClient.swift in Sources */,
 				5076B2BD27CF66DC00635747 /* WeatherCell.swift in Sources */,
+				50FBDAA627CF76D7008ABADD /* DefaultError.swift in Sources */,
 				5076B27527CF629500635747 /* AppDelegate.swift in Sources */,
 				5076B2AE27CF64A400635747 /* Optional.swift in Sources */,
 				5076B2B727CF660000635747 /* BaseVC.swift in Sources */,
+				50FBDAA327CF767F008ABADD /* SharedLogger.swift in Sources */,
+				50FBDA9A27CF7512008ABADD /* API.swift in Sources */,
+				5076B2C127CF678800635747 /* UITableView.swift in Sources */,
+				50FBDAA027CF7652008ABADD /* BaseNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
