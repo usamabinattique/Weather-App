@@ -24,6 +24,7 @@ class WeatherVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
     }
 }
 
@@ -37,6 +38,14 @@ private extension WeatherVC {
         tableView.tableFooterView =  UIView()
         tableView.dataSource = self
         tableView.registerNib(cell: WeatherCell.self)
+    }
+    
+    func getWeatherData() {
+        viewModel.fetchWeatherData { errorMessage, error in
+            if let error = error {
+                
+            }
+        }
     }
 }
 

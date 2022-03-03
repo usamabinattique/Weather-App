@@ -9,53 +9,55 @@ import UIKit
 
 /// Main `NetworkEndPoint`s for the app
 enum API: NetworkEndPoint {
-    case weather
+    case weather(request: BaseRequestModel)
 }
 
 /// Implementation of `NetworkEndPoint`
  extension API {
      
     var isTesting: Bool {
-        return false
+        false
     }
      
     /// path for the endpoint
     var path: String {
-        switch self {
-        case .weather:
-            return "api/weather/"
-        }
+        "data/2.5/weather"
     }
+     
     /// Query items for endpoint
     var queryItems: KeyValuePairs<String, String>? {
-        return nil
+        switch self {
+        case let .weather(weatherRequest):
+            
+            if let weatherRequest = weatherRequest as? WeatherRequestable {
+                return ["apiKey": weatherRequest.apiKey,
+                        "q": weatherRequest.city]
+            }
+            
+            return nil
+        }
     }
 
     /// Body disctionary for endpotins
     var body: Data? {
-        switch self {
-        case .weather:
-            return nil
-        default:
-            return nil
-        }
+         nil
     }
     var contentType: HTTPContentType {
-        return .json
+        .json
     }
 
     /// http method for endpoint
     var method: HTTPMethod {
-        return .get
+        .get
     }
 
     /// Default headers
      var headers: [String: String]? {
-         return nil
+        nil
      }
      
      var url: URL {
-         return URL(string: "")!
+        URL(string: "https://api.openweathermap.org/")!
      }
  }
 

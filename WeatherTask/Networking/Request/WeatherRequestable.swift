@@ -11,8 +11,10 @@ public protocol BaseRequestModel { }
 
 protocol WeatherRequestable: BaseRequestModel {
     var apiKey: String { get set }
+    var city: String { get set }
 }
 
 struct WeatherRequest: WeatherRequestable {
     var apiKey: String
+    var city: String
 }
