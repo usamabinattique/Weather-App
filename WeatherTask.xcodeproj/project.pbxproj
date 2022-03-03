@@ -29,6 +29,9 @@
 		50FBDAA327CF767F008ABADD /* SharedLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAA227CF767F008ABADD /* SharedLogger.swift */; };
 		50FBDAA627CF76D7008ABADD /* DefaultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAA527CF76D7008ABADD /* DefaultError.swift */; };
 		50FBDAA827CF76FD008ABADD /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAA727CF76FD008ABADD /* JSONEncoder.swift */; };
+		50FBDAE627CFBF6E008ABADD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAE527CFBF6E008ABADD /* Constants.swift */; };
+		50FBDAE927CFEF25008ABADD /* WeatherRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAE827CFEF25008ABADD /* WeatherRequestable.swift */; };
+		50FBDAEC27D0A26E008ABADD /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAEB27D0A26E008ABADD /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		50FBDAA227CF767F008ABADD /* SharedLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLogger.swift; sourceTree = "<group>"; };
 		50FBDAA527CF76D7008ABADD /* DefaultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultError.swift; sourceTree = "<group>"; };
 		50FBDAA727CF76FD008ABADD /* JSONEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
+		50FBDAE527CFBF6E008ABADD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		50FBDAE827CFEF25008ABADD /* WeatherRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequestable.swift; sourceTree = "<group>"; };
+		50FBDAEB27D0A26E008ABADD /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 				5076B2A827CF645700635747 /* Extensions */,
 				5076B2B127CF658F00635747 /* ViewModel */,
 				5076B2A427CF63D700635747 /* Views */,
+				50FBDAEA27D0A25F008ABADD /* Model */,
 				5076B2A627CF63F200635747 /* Controllers */,
 				5076B27D27CF629800635747 /* Assets.xcassets */,
 				5076B27F27CF629800635747 /* LaunchScreen.storyboard */,
@@ -277,6 +284,7 @@
 			children = (
 				50FBDA9927CF7512008ABADD /* API.swift */,
 				50FBDA9B27CF7616008ABADD /* Base */,
+				50FBDAE727CFEED7008ABADD /* Request */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -296,8 +304,25 @@
 			isa = PBXGroup;
 			children = (
 				50FBDAA227CF767F008ABADD /* SharedLogger.swift */,
+				50FBDAE527CFBF6E008ABADD /* Constants.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		50FBDAE727CFEED7008ABADD /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				50FBDAE827CFEF25008ABADD /* WeatherRequestable.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		50FBDAEA27D0A25F008ABADD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				50FBDAEB27D0A26E008ABADD /* Weather.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,11 +458,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50FBDAE927CFEF25008ABADD /* WeatherRequestable.swift in Sources */,
+				50FBDAEC27D0A26E008ABADD /* Weather.swift in Sources */,
 				5076B27927CF629500635747 /* WeatherVC.swift in Sources */,
 				5076B2C427CF67BC00635747 /* ReusableIdentifier.swift in Sources */,
 				50FBDAA827CF76FD008ABADD /* JSONEncoder.swift in Sources */,
 				5076B2B427CF65B300635747 /* WeatherViewModel.swift in Sources */,
 				50FBDA9D27CF7626008ABADD /* APIClient.swift in Sources */,
+				50FBDAE627CFBF6E008ABADD /* Constants.swift in Sources */,
 				5076B2BD27CF66DC00635747 /* WeatherCell.swift in Sources */,
 				50FBDAA627CF76D7008ABADD /* DefaultError.swift in Sources */,
 				5076B27527CF629500635747 /* AppDelegate.swift in Sources */,
