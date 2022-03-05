@@ -83,7 +83,6 @@ extension URL {
             items.append(URLQueryItem(name: key, value: val))
         }
         components.queryItems = items
-        let url = components.url
         return components.url ?? self
     }
 }

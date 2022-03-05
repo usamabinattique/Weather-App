@@ -13,21 +13,49 @@ typealias MainThreadCompletion = (String?, Error?) -> Void
 class WeatherViewModel {
     
     private(set) var weather: Weather?
+    private(set) var forecast: [Forecast] = []
+    
     init() { }
+
 }
 
+extension WeatherViewModel {
+    func tempConversion(for temp: Double) -> String {
+        convertTemp(temp: temp, from: .kelvin, to: .celsius)
+    }
+}
 
 extension WeatherViewModel {
     func fetchWeatherData(completion: @escaping MainThreadCompletion) {
         let request: WeatherRequestable = WeatherRequest(apiKey: Constants.apiKey,
                                                          city: "Islamabad")
         
-        let endPoint = API.weather(request: request)
+        let endPoint = API.currentWeather(request: request)
         APIClient.shared.request(endPoint: endPoint, decode: Weather.self, error: DefaultError.self) { result in
             switch result {
             case let .success(root):
+                                
                 if let weatherRoot = root as? Weather {
                     self.weather = weatherRoot
+                    completion(nil, nil)
+                }
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func fetchForecastData(completion: @escaping MainThreadCompletion) {
+        let request: ForecastRequestable = ForecastRequest(apiKey: Constants.apiKey,
+                                                           city: "Islamabad",
+                                                           count: 7)
+        
+        let endPoint = API.forecast(request: request)
+        APIClient.shared.request(endPoint: endPoint, decode: ForecastRoot.self, error: DefaultError.self) { result in
+            switch result {
+            case let .success(root):
+                if let root = root as? ForecastRoot {
+                    self.forecast = root.list
                     completion(nil, nil)
                 }
             case let .failure(error):

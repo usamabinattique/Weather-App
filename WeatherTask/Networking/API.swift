@@ -9,7 +9,8 @@ import UIKit
 
 /// Main `NetworkEndPoint`s for the app
 enum API: NetworkEndPoint {
-    case weather(request: BaseRequestModel)
+    case currentWeather(request: BaseRequestModel)
+    case forecast(request: BaseRequestModel)
 }
 
 /// Implementation of `NetworkEndPoint`
@@ -20,14 +21,20 @@ enum API: NetworkEndPoint {
     }
      
     /// path for the endpoint
-    var path: String {
-        "data/2.5/weather"
-    }
+     var path: String {
+         
+         switch self {
+         case .currentWeather:
+             return "data/2.5/weather"
+         case .forecast:
+             return "data/2.5/forecast/daily"
+         }
+     }
      
     /// Query items for endpoint
     var queryItems: KeyValuePairs<String, String>? {
         switch self {
-        case let .weather(weatherRequest):
+        case let .currentWeather(weatherRequest):
             
             if let weatherRequest = weatherRequest as? WeatherRequestable {
                 return ["apiKey": weatherRequest.apiKey,
@@ -35,10 +42,18 @@ enum API: NetworkEndPoint {
             }
             
             return nil
+        case let .forecast(forecastRequest):
+            if let forecastRequest = forecastRequest as? ForecastRequestable {
+                return ["apiKey": forecastRequest.apiKey,
+                        "q": forecastRequest.city,
+                        "count": "\(forecastRequest.count)"]
+            }
+            
+            return nil
         }
     }
 
-    /// Body disctionary for endpotins
+    /// Body dictionary for endpoints
     var body: Data? {
          nil
     }
@@ -57,29 +72,6 @@ enum API: NetworkEndPoint {
      }
      
      var url: URL {
-        URL(string: "https://api.openweathermap.org/")!
+         URL(string: Constants.baseUrl)!.appendingPathComponent(path)
      }
  }
-
-private extension API {
-    func encode<T>(request: T) -> Data? where T: Codable {
-        let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .iso8601
-        encoder.outputFormatting = .prettyPrinted
-        do {
-
-            let data = try encoder.encode(request)
-            return data
-
-        } catch {
-
-        }
-        return nil
-    }
-}
-
-extension URL {
-    mutating func appendURLWithQueryParams(newVal: String) {
-        appendPathComponent(newVal)
-    }
-}

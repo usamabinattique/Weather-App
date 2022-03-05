@@ -15,6 +15,11 @@ class WeatherVC: BaseVC {
     @IBOutlet weak var currentTemperature: UILabel!
     @IBOutlet weak var currentWeatherType: UILabel!
     @IBOutlet weak var currentWeatherIcon: UIImageView!
+    @IBOutlet weak var highTemperature: UILabel!
+    @IBOutlet weak var lowTemperature: UILabel!
+    @IBOutlet weak var feelsLike: UILabel!
+    @IBOutlet weak var humidity: UILabel!
+
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -24,7 +29,7 @@ class WeatherVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
+        getWeatherData()
     }
 }
 
@@ -37,13 +42,50 @@ private extension WeatherVC {
         tableView.backgroundColor = .clear
         tableView.tableFooterView =  UIView()
         tableView.dataSource = self
-        tableView.registerNib(cell: WeatherCell.self)
+        tableView.registerNib(cell: ForecastCell.self)
     }
     
     func getWeatherData() {
-        viewModel.fetchWeatherData { errorMessage, error in
-            if let error = error {
-                
+        showLoader()
+        viewModel.fetchWeatherData { [weak self] errorMessage, error in
+        
+            guard let self = self else { return }
+            
+            self.viewModel.fetchForecastData { errorMessage, error in
+                DispatchQueue.main.async {
+                    self.dismissLoader()
+                    if let error = error {
+                        self.presentAlert(Constants.failure, error)
+                    }
+                    
+                    if !self.viewModel.weather.isNil {
+                        self.updateUI()
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    func updateUI() {
+        
+        if let model = viewModel.weather {
+            location.text = model.name
+            currentTemperature.text = viewModel.tempConversion(for: model.main.temp)
+            date.text = Date().toString()
+            highTemperature.text =  viewModel.tempConversion(for: model.main.tempMax)
+            lowTemperature.text =  viewModel.tempConversion(for: model.main.tempMin)
+            humidity.text =  "\(model.main.humidity)%"
+            feelsLike.text =  viewModel.tempConversion(for: model.main.feelsLike)
+            
+            if model.weather.count > 0 {
+                let weather = model.weather[0]
+                currentWeatherType.text = "\(weather.main)"
+                ImageProvider.getImage(urlString: Constants.imageUrlString(iconCode: weather.icon)) { image, error in
+                    if let image = image {
+                        self.currentWeatherIcon.image = image
+                    }
+                }
             }
         }
     }
@@ -51,12 +93,13 @@ private extension WeatherVC {
 
 extension WeatherVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        viewModel.forecast.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: WeatherCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        let cell: ForecastCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.forecast = viewModel.forecast[indexPath.row]
         return cell
     }
 }

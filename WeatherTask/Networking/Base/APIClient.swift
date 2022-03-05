@@ -76,9 +76,9 @@ class APIClient {
                     }
                 }
                 //
-//                let decoderr = JSONDecoder()
-//                let parsedsModel = try! decoderr.decode(decodingType, from: data!)
-//                print(parsedsModel)
+                let decoderr = JSONDecoder()
+                let parsedsModel = try! decoderr.decode(decodingType, from: data!)
+                print(parsedsModel)
 
                 let (res, err) = JSONDecoder.decode(decodingType, errorType: errType, data: responseData)
 
@@ -98,7 +98,7 @@ class APIClient {
 
                         //  saving files for mock testing of network calls
                         let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
-                        //self.saveDataForTests(data: responseData, requestDetail: request, statusCode: statusCode)
+                        self.saveDataForTests(data: responseData, requestDetail: request, statusCode: statusCode)
                     }
                     networkCompletion(.success(resData))
 
