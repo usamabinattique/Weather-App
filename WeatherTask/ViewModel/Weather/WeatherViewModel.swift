@@ -40,6 +40,19 @@ extension WeatherViewModel {
                     completion(nil, nil)
                 }
             case let .failure(error):
+                
+                if let unauthorizedError = error as? DefaultError {
+                    
+                    switch unauthorizedError {
+                    case .unauthorized(let response):
+                        if let root = response as? ErrorHandler {
+                            completion(root.message, nil)
+                        }
+                    default:
+                        completion(nil, error)
+                    }
+                }
+                
                 completion(nil, error)
             }
         }
@@ -59,8 +72,19 @@ extension WeatherViewModel {
                     completion(nil, nil)
                 }
             case let .failure(error):
-                completion(nil, error)
-            }
+                if let unauthorizedError = error as? DefaultError {
+                    
+                    switch unauthorizedError {
+                    case .unauthorized(let response):
+                        if let root = response as? ErrorHandler {
+                            completion(root.message, nil)
+                        }
+                    default:
+                        completion(nil, error)
+                    }
+                }
+                
+                completion(nil, error)            }
         }
     }
 }

@@ -20,12 +20,14 @@ class WeatherVC: BaseVC {
     @IBOutlet weak var feelsLike: UILabel!
     @IBOutlet weak var humidity: UILabel!
 
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     
     
     private var viewModel: WeatherViewModel!
 
     // MARK: UIController Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -48,19 +50,28 @@ private extension WeatherVC {
     func getWeatherData() {
         showLoader()
         viewModel.fetchWeatherData { [weak self] errorMessage, error in
-        
+            
             guard let self = self else { return }
             
-            self.viewModel.fetchForecastData { errorMessage, error in
+            if let errorMessage = errorMessage {
                 DispatchQueue.main.async {
-                    self.dismissLoader()
-                    if let error = error {
-                        self.presentAlert(Constants.failure, error)
-                    }
+                    self.presentAlert(Constants.failure, nil, errorMessage)
+                }
+            } else {
+                self.viewModel.fetchForecastData { errorMessage, error in
                     
-                    if !self.viewModel.weather.isNil {
-                        self.updateUI()
-                        self.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        self.dismissLoader()
+                        if let error = error {
+                            self.presentAlert(Constants.failure, error)
+                        }
+                        
+                        if let errorMessage = errorMessage {
+                            self.presentAlert(Constants.failure, nil, errorMessage)
+                        }
+                        
+                        !self.viewModel.weather.isNil ? self.updateUI() : ()
+                        self.viewModel.forecast.count > 0 ? self.tableView.reloadData() : ()
                     }
                 }
             }

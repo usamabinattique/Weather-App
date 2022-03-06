@@ -14,8 +14,6 @@ class APIClient {
 
     static let shared = APIClient()
         
-    var shouldLogOut: (NetworkCompletion)?
-
     private init() { }
 
     /// <#Description#>
@@ -52,7 +50,10 @@ class APIClient {
                 
                 print("Status Code: \((response as? HTTPURLResponse)!.statusCode)")
                 if (response as? HTTPURLResponse)!.statusCode == 401 {
-                    self.shouldLogOut?(.failure(DefaultError.unauthorized))
+                    
+                    let (res, _) = JSONDecoder.decode(ErrorHandler.self, errorType: errType, data: data)
+                
+                    networkCompletion(.failure(DefaultError.unauthorized(data: res)))
                     return
                 }
 
@@ -75,10 +76,8 @@ class APIClient {
                         return
                     }
                 }
+                
                 //
-                let decoderr = JSONDecoder()
-                let parsedsModel = try! decoderr.decode(decodingType, from: data!)
-                print(parsedsModel)
 
                 let (res, err) = JSONDecoder.decode(decodingType, errorType: errType, data: responseData)
 

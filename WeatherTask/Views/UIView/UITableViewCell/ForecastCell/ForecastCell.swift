@@ -24,7 +24,7 @@ class ForecastCell: UITableViewCell {
 
             lowTemp.text = convertTemp(temp: forecast.temp.min, from: .kelvin, to: .celsius)
             feelsLike.text = forecast.feelsLike.day.stringValue
-            humidity.text = "\(forecast.humidity) %"
+            humidity.text = "\(forecast.humidity)%"
             weatherType.text = forecast.weather[0].main
             
             ImageProvider.getImage(urlString: Constants.imageUrlString(iconCode: forecast.weather[0].icon)) { [unowned self] image, error in

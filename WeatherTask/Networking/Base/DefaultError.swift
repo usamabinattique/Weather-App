@@ -13,7 +13,7 @@ enum DefaultError: Error {
     case exception(error: Error?)
     case failure(message: String)
     case responseError(errorStatus: Error?)
-    case unauthorized
+    case unauthorized(data: Decodable)
 }
 
 extension DefaultError: Decodable {

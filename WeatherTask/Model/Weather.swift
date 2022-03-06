@@ -10,6 +10,7 @@ import Foundation
 // MARK: - Weather
 struct Weather: Codable {
 
+    let message: String?
     let weather: [WeatherElement]
     let base: String
     let main: Main
