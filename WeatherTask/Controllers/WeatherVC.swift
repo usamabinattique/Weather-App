@@ -20,7 +20,6 @@ class WeatherVC: BaseVC {
     @IBOutlet weak var feelsLike: UILabel!
     @IBOutlet weak var humidity: UILabel!
 
-    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     
     
