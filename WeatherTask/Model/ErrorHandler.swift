@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Forecast
 struct ErrorHandler: Codable {
     let message: String
 }

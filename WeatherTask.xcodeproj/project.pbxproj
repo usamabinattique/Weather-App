@@ -24,7 +24,6 @@
 		5076B2C427CF67BC00635747 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076B2C327CF67BC00635747 /* ReusableIdentifier.swift */; };
 		50A6AD3027D37E9900CC7B20 /* ForecastRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A6AD2F27D37E9900CC7B20 /* ForecastRequestable.swift */; };
 		50A6AD3227D39BB300CC7B20 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A6AD3127D39BB300CC7B20 /* Forecast.swift */; };
-		50A6AD3427D3A32E00CC7B20 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A6AD3327D3A32E00CC7B20 /* Double.swift */; };
 		50A6AD3627D3AC3100CC7B20 /* TemperatureConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A6AD3527D3AC3100CC7B20 /* TemperatureConvertable.swift */; };
 		50A6AD3827D3CB7900CC7B20 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A6AD3727D3CB7900CC7B20 /* ErrorHandler.swift */; };
 		50FBDA9A27CF7512008ABADD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDA9927CF7512008ABADD /* API.swift */; };
@@ -41,7 +40,6 @@
 		50FBDAF227D0AD6C008ABADD /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAF127D0AD6C008ABADD /* UIAlertController.swift */; };
 		50FBDAF527D0C6C8008ABADD /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAF427D0C6C8008ABADD /* Date.swift */; };
 		50FBDAF727D0C6F5008ABADD /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAF627D0C6F5008ABADD /* Formatter.swift */; };
-		50FBDAF927D14EE4008ABADD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAF827D14EE4008ABADD /* Location.swift */; };
 		721CC422D34ACF10DFC3171D /* Pods_WeatherTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFC0CB2B74AABA0127A364 /* Pods_WeatherTaskTests.framework */; };
 		9AC324B9EB2DA4F74EF039D0 /* Pods_WeatherTask_WeatherTaskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700826D653845349DC656B28 /* Pods_WeatherTask_WeatherTaskUITests.framework */; };
 		CEFDEFF18FD8C227E908EACF /* Pods_WeatherTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 592A7336A5881022DBA02D11 /* Pods_WeatherTask.framework */; };
@@ -89,7 +87,6 @@
 		5076B2C327CF67BC00635747 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
 		50A6AD2F27D37E9900CC7B20 /* ForecastRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRequestable.swift; sourceTree = "<group>"; };
 		50A6AD3127D39BB300CC7B20 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
-		50A6AD3327D3A32E00CC7B20 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		50A6AD3527D3AC3100CC7B20 /* TemperatureConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConvertable.swift; sourceTree = "<group>"; };
 		50A6AD3727D3CB7900CC7B20 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		50FBDA9927CF7512008ABADD /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -106,7 +103,6 @@
 		50FBDAF127D0AD6C008ABADD /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		50FBDAF427D0C6C8008ABADD /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		50FBDAF627D0C6F5008ABADD /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		50FBDAF827D14EE4008ABADD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		590835906A7596838B530211 /* Pods-WeatherTask-WeatherTaskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherTask-WeatherTaskUITests.release.xcconfig"; path = "Target Support Files/Pods-WeatherTask-WeatherTaskUITests/Pods-WeatherTask-WeatherTaskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		592A7336A5881022DBA02D11 /* Pods_WeatherTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EDFC0CB2B74AABA0127A364 /* Pods_WeatherTaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherTaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				5076B2AD27CF64A400635747 /* Optional.swift */,
-				50A6AD3327D3A32E00CC7B20 /* Double.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -359,7 +354,6 @@
 				50FBDAA227CF767F008ABADD /* SharedLogger.swift */,
 				50FBDAE527CFBF6E008ABADD /* Constants.swift */,
 				50FBDAEF27D0ABE9008ABADD /* ImageProvider.swift */,
-				50FBDAF827D14EE4008ABADD /* Location.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -650,7 +644,6 @@
 				50FBDAF727D0C6F5008ABADD /* Formatter.swift in Sources */,
 				50FBDAE927CFEF25008ABADD /* WeatherRequestable.swift in Sources */,
 				50FBDAEC27D0A26E008ABADD /* Weather.swift in Sources */,
-				50A6AD3427D3A32E00CC7B20 /* Double.swift in Sources */,
 				50FBDAEE27D0AA96008ABADD /* UIViewController.swift in Sources */,
 				5076B27927CF629500635747 /* WeatherVC.swift in Sources */,
 				50FBDAF227D0AD6C008ABADD /* UIAlertController.swift in Sources */,
@@ -663,7 +656,6 @@
 				5076B2BD27CF66DC00635747 /* ForecastCell.swift in Sources */,
 				50FBDAA627CF76D7008ABADD /* DefaultError.swift in Sources */,
 				5076B27527CF629500635747 /* AppDelegate.swift in Sources */,
-				50FBDAF927D14EE4008ABADD /* Location.swift in Sources */,
 				5076B2AE27CF64A400635747 /* Optional.swift in Sources */,
 				5076B2B727CF660000635747 /* BaseVC.swift in Sources */,
 				50FBDAA327CF767F008ABADD /* SharedLogger.swift in Sources */,

@@ -84,7 +84,8 @@ extension WeatherViewModel {
                     }
                 }
                 
-                completion(nil, error)            }
+                completion(nil, error)
+            }
         }
     }
 }

@@ -7,15 +7,7 @@
 
 import Foundation
 
-public protocol BaseRequestModel {
-
-}
-
-
-protocol LocationProvidable {
-    var latitiude: String { get set }
-    var longitude: String { get set }
-}
+public protocol BaseRequestModel { }
 
 protocol WeatherRequestable: BaseRequestModel {
     var apiKey: String { get set }
