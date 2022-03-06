@@ -21,7 +21,7 @@ class WeatherViewModel {
 
 extension WeatherViewModel {
     func tempConversion(for temp: Double) -> String {
-        convertTemp(temp: temp, from: .kelvin, to: .celsius)
+        convertTemp(temp: temp)
     }
 }
 

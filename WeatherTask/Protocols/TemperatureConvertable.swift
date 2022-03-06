@@ -13,7 +13,7 @@ protocol TemperatureConvertable {
 
 extension TemperatureConvertable {
     
-    func convertTemp(temp: Double, from inputTempType: UnitTemperature, to outputTempType: UnitTemperature) -> String {
+    func convertTemp(temp: Double, from inputTempType: UnitTemperature = .kelvin, to outputTempType: UnitTemperature = .celsius) -> String {
         let mf = MeasurementFormatter()
         mf.numberFormatter.maximumFractionDigits = 0
         mf.unitOptions = .providedUnit

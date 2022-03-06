@@ -11,7 +11,6 @@ class ForecastCell: UITableViewCell {
     
     
     @IBOutlet weak var weatherIcon: UIImageView!
-    @IBOutlet weak var day: UILabel!
     @IBOutlet weak var weatherType: UILabel!
     @IBOutlet weak var highTemp: UILabel!
     @IBOutlet weak var lowTemp: UILabel!
@@ -20,10 +19,9 @@ class ForecastCell: UITableViewCell {
     
     var forecast: Forecast! {
         didSet {
-            highTemp.text = convertTemp(temp: forecast.temp.max, from: .kelvin, to: .celsius)
-
-            lowTemp.text = convertTemp(temp: forecast.temp.min, from: .kelvin, to: .celsius)
-            feelsLike.text = forecast.feelsLike.day.stringValue
+            highTemp.text = convertTemp(temp: forecast.temp.max)
+            lowTemp.text = convertTemp(temp: forecast.temp.min)
+            feelsLike.text = convertTemp(temp: forecast.feelsLike.day)
             humidity.text = "\(forecast.humidity)%"
             weatherType.text = forecast.weather[0].main
             
